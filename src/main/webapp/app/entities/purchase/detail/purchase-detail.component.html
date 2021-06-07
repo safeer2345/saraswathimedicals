@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="purchase">
+      <h2 data-cy="purchaseDetailsHeading"><span jhiTranslate="saraswathimedicalsApp.purchase.detail.title">Purchase</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ purchase.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="saraswathimedicalsApp.purchase.total">Total</span></dt>
+        <dd>
+          <span>{{ purchase.total }}</span>
+        </dd>
+        <dt><span jhiTranslate="saraswathimedicalsApp.purchase.date">Date</span></dt>
+        <dd>
+          <span>{{ purchase.date | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="saraswathimedicalsApp.purchase.vender">Vender</span></dt>
+        <dd>
+          <div *ngIf="purchase.vender">
+            <a [routerLink]="['/vender', purchase.vender?.id, 'view']">{{ purchase.vender?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/purchase', purchase.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

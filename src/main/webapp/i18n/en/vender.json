@@ -1,0 +1,28 @@
+{
+  "saraswathimedicalsApp": {
+    "vender": {
+      "home": {
+        "title": "Venders",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Vender",
+        "createOrEditLabel": "Create or edit a Vender",
+        "notFound": "No Venders found"
+      },
+      "created": "A new Vender is created with identifier {{ param }}",
+      "updated": "A Vender is updated with identifier {{ param }}",
+      "deleted": "A Vender is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Vender {{ id }}?"
+      },
+      "detail": {
+        "title": "Vender"
+      },
+      "id": "ID",
+      "name": "Name",
+      "address": "Address",
+      "contact": "Contact",
+      "date": "Date",
+      "purchase": "Purchase"
+    }
+  }
+}

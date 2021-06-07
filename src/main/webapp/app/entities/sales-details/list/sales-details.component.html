@@ -1,0 +1,92 @@
+<div>
+  <h2 id="page-heading" data-cy="SalesDetailsHeading">
+    <span jhiTranslate="saraswathimedicalsApp.salesDetails.home.title">Sales Details</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="saraswathimedicalsApp.salesDetails.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-sales-details"
+        [routerLink]="['/sales-details/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="saraswathimedicalsApp.salesDetails.home.createLabel"> Create a new Sales Details </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="salesDetails?.length === 0">
+    <span jhiTranslate="saraswathimedicalsApp.salesDetails.home.notFound">No salesDetails found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="salesDetails && salesDetails.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="saraswathimedicalsApp.salesDetails.quantity">Quantity</span></th>
+          <th scope="col"><span jhiTranslate="saraswathimedicalsApp.salesDetails.rate">Rate</span></th>
+          <th scope="col"><span jhiTranslate="saraswathimedicalsApp.salesDetails.sale">Sale</span></th>
+          <th scope="col"><span jhiTranslate="saraswathimedicalsApp.salesDetails.product">Product</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let salesDetails of salesDetails; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/sales-details', salesDetails.id, 'view']">{{ salesDetails.id }}</a>
+          </td>
+          <td>{{ salesDetails.quantity }}</td>
+          <td>{{ salesDetails.rate }}</td>
+          <td>
+            <div *ngIf="salesDetails.sale">
+              <a [routerLink]="['/sale', salesDetails.sale?.id, 'view']">{{ salesDetails.sale?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="salesDetails.product">
+              <a [routerLink]="['/product', salesDetails.product?.id, 'view']">{{ salesDetails.product?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/sales-details', salesDetails.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/sales-details', salesDetails.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(salesDetails)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

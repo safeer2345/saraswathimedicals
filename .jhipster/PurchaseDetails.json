@@ -1,0 +1,37 @@
+{
+  "name": "PurchaseDetails",
+  "fields": [
+    {
+      "fieldName": "rate",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "purchaseDetails",
+      "relationshipName": "product"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "purchase",
+      "otherEntityRelationshipName": "purchaseDetails",
+      "relationshipName": "purchase"
+    }
+  ],
+  "entityTableName": "purchase_details",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210605080823"
+}

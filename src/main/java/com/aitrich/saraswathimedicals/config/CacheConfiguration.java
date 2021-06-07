@@ -48,6 +48,23 @@ public class CacheConfiguration {
             createCache(cm, com.aitrich.saraswathimedicals.domain.User.class.getName());
             createCache(cm, com.aitrich.saraswathimedicals.domain.Authority.class.getName());
             createCache(cm, com.aitrich.saraswathimedicals.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.aitrich.saraswathimedicals.domain.Customer.class.getName());
+            createCache(cm, com.aitrich.saraswathimedicals.domain.Customer.class.getName() + ".sales");
+            createCache(cm, com.aitrich.saraswathimedicals.domain.Vender.class.getName());
+            createCache(cm, com.aitrich.saraswathimedicals.domain.Vender.class.getName() + ".purchases");
+            createCache(cm, com.aitrich.saraswathimedicals.domain.ProductCategory.class.getName());
+            createCache(cm, com.aitrich.saraswathimedicals.domain.ProductCategory.class.getName() + ".products");
+            createCache(cm, com.aitrich.saraswathimedicals.domain.Product.class.getName());
+            createCache(cm, com.aitrich.saraswathimedicals.domain.Product.class.getName() + ".salesDetails");
+            createCache(cm, com.aitrich.saraswathimedicals.domain.Product.class.getName() + ".purchaseDetails");
+            createCache(cm, com.aitrich.saraswathimedicals.domain.Stock.class.getName());
+            createCache(cm, com.aitrich.saraswathimedicals.domain.ProductRate.class.getName());
+            createCache(cm, com.aitrich.saraswathimedicals.domain.Sale.class.getName());
+            createCache(cm, com.aitrich.saraswathimedicals.domain.Sale.class.getName() + ".salesDetails");
+            createCache(cm, com.aitrich.saraswathimedicals.domain.PurchaseDetails.class.getName());
+            createCache(cm, com.aitrich.saraswathimedicals.domain.Purchase.class.getName());
+            createCache(cm, com.aitrich.saraswathimedicals.domain.Purchase.class.getName() + ".purchaseDetails");
+            createCache(cm, com.aitrich.saraswathimedicals.domain.SalesDetails.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

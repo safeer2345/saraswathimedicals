@@ -1,0 +1,73 @@
+
+
+
+
+entity Customer {
+   name String required
+   address String required
+   contact Long required
+   date Instant required
+}
+
+entity Vender {
+   name String required
+   address String required
+   contact Long required
+   date Instant required
+}
+
+entity ProductCategory{
+  name String required
+  description String required
+}
+
+entity Product{
+  name String required
+  image ImageBlob 
+}
+
+entity Stock{
+  quantity Integer
+}
+
+entity ProductRate{
+  price Integer
+}
+
+entity Sale{
+  toatal Float
+  date Instant
+}
+
+entity PurchaseDetails{
+  rate Float
+  quantity Integer
+}
+
+entity Purchase{
+  total Float
+  date Instant
+}
+
+entity SalesDetails{
+  quantity Integer
+  rate Float
+}
+
+relationship ManyToOne {
+  Sale to Customer,
+  SalesDetails to Sale,
+  SalesDetails to Product,
+  Product to ProductCategory,
+  PurchaseDetails to Product
+  PurchaseDetails to Purchase
+  Purchase to Vender
+}
+
+relationship OneToOne {
+  Stock to Product
+  ProductRate to Product
+}
+
+
+

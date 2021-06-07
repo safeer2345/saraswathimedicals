@@ -1,0 +1,37 @@
+{
+  "name": "Purchase",
+  "fields": [
+    {
+      "fieldName": "total",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "vender",
+      "otherEntityRelationshipName": "purchase",
+      "relationshipName": "vender"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "purchaseDetails",
+      "otherEntityRelationshipName": "purchase",
+      "relationshipName": "purchaseDetails"
+    }
+  ],
+  "entityTableName": "purchase",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210605080824"
+}

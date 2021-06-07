@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="productRate">
+      <h2 data-cy="productRateDetailsHeading"><span jhiTranslate="saraswathimedicalsApp.productRate.detail.title">Product Rate</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ productRate.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="saraswathimedicalsApp.productRate.price">Price</span></dt>
+        <dd>
+          <span>{{ productRate.price }}</span>
+        </dd>
+        <dt><span jhiTranslate="saraswathimedicalsApp.productRate.product">Product</span></dt>
+        <dd>
+          <div *ngIf="productRate.product">
+            <a [routerLink]="['/product', productRate.product?.id, 'view']">{{ productRate.product?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/product-rate', productRate.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

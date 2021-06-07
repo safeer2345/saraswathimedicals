@@ -1,0 +1,59 @@
+{
+  "name": "Product",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productCategory",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "productCategory"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "stock",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "stock",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "productRate",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "productRate",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "salesDetails",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "salesDetails"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "purchaseDetails",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "purchaseDetails"
+    }
+  ],
+  "entityTableName": "product",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210605080819"
+}

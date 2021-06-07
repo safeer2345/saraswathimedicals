@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-purchase-details-heading"
+        data-cy="PurchaseDetailsCreateUpdateHeading"
+        jhiTranslate="saraswathimedicalsApp.purchaseDetails.home.createOrEditLabel"
+      >
+        Create or edit a Purchase Details
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="saraswathimedicalsApp.purchaseDetails.rate" for="field_rate">Rate</label>
+          <input type="number" class="form-control" name="rate" id="field_rate" data-cy="rate" formControlName="rate" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="saraswathimedicalsApp.purchaseDetails.quantity" for="field_quantity"
+            >Quantity</label
+          >
+          <input type="number" class="form-control" name="quantity" id="field_quantity" data-cy="quantity" formControlName="quantity" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="saraswathimedicalsApp.purchaseDetails.product" for="field_product">Product</label>
+          <select class="form-control" id="field_product" data-cy="product" name="product" formControlName="product">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="productOption.id === editForm.get('product')!.value?.id ? editForm.get('product')!.value : productOption"
+              *ngFor="let productOption of productsSharedCollection; trackBy: trackProductById"
+            >
+              {{ productOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="saraswathimedicalsApp.purchaseDetails.purchase" for="field_purchase"
+            >Purchase</label
+          >
+          <select class="form-control" id="field_purchase" data-cy="purchase" name="purchase" formControlName="purchase">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="purchaseOption.id === editForm.get('purchase')!.value?.id ? editForm.get('purchase')!.value : purchaseOption"
+              *ngFor="let purchaseOption of purchasesSharedCollection; trackBy: trackPurchaseById"
+            >
+              {{ purchaseOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "saraswathimedicalsApp": {
+    "productRate": {
+      "home": {
+        "title": "Product Rates",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Product Rate",
+        "createOrEditLabel": "Create or edit a Product Rate",
+        "notFound": "No Product Rates found"
+      },
+      "created": "A new Product Rate is created with identifier {{ param }}",
+      "updated": "A Product Rate is updated with identifier {{ param }}",
+      "deleted": "A Product Rate is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Rate {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Rate"
+      },
+      "id": "ID",
+      "price": "Price",
+      "product": "Product"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="salesDetails">
+      <h2 data-cy="salesDetailsDetailsHeading">
+        <span jhiTranslate="saraswathimedicalsApp.salesDetails.detail.title">Sales Details</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ salesDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="saraswathimedicalsApp.salesDetails.quantity">Quantity</span></dt>
+        <dd>
+          <span>{{ salesDetails.quantity }}</span>
+        </dd>
+        <dt><span jhiTranslate="saraswathimedicalsApp.salesDetails.rate">Rate</span></dt>
+        <dd>
+          <span>{{ salesDetails.rate }}</span>
+        </dd>
+        <dt><span jhiTranslate="saraswathimedicalsApp.salesDetails.sale">Sale</span></dt>
+        <dd>
+          <div *ngIf="salesDetails.sale">
+            <a [routerLink]="['/sale', salesDetails.sale?.id, 'view']">{{ salesDetails.sale?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="saraswathimedicalsApp.salesDetails.product">Product</span></dt>
+        <dd>
+          <div *ngIf="salesDetails.product">
+            <a [routerLink]="['/product', salesDetails.product?.id, 'view']">{{ salesDetails.product?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/sales-details', salesDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

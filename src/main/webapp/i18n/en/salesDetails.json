@@ -1,0 +1,27 @@
+{
+  "saraswathimedicalsApp": {
+    "salesDetails": {
+      "home": {
+        "title": "Sales Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Sales Details",
+        "createOrEditLabel": "Create or edit a Sales Details",
+        "notFound": "No Sales Details found"
+      },
+      "created": "A new Sales Details is created with identifier {{ param }}",
+      "updated": "A Sales Details is updated with identifier {{ param }}",
+      "deleted": "A Sales Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sales Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Sales Details"
+      },
+      "id": "ID",
+      "quantity": "Quantity",
+      "rate": "Rate",
+      "sale": "Sale",
+      "product": "Product"
+    }
+  }
+}
